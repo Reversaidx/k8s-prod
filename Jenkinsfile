@@ -23,7 +23,7 @@ pipeline {
       }
       steps {
         container("helm") {
-          sh "helm repo add chartmuseum http://${cmAddr}"
+          sh "helm repo add chartmuseum http://admin:admin@${cmAddr}"
           sh "helm repo update"
           sh "helm dependency update helm"
           sh "helm upgrade -i prod helm --namespace prod --force"
